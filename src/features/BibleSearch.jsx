@@ -21,8 +21,8 @@ const apiKey='07da560015da815745131ec07d5cc5cc'
    await axios
     .get(endpointBooks,{headers:{
         'api-key':  apiKey,
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true
+       
+      
     }})
     .then(response=>{
         setBookData(response.data)
