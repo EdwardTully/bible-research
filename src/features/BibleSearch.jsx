@@ -8,26 +8,28 @@ function BibleSearch() {
 const apiKey='07da560015da815745131ec07d5cc5cc'
 
   const  [version, setVersion]=useState('179568874c45066f-01')
-  const [books, setBooks ] = useState('')
-  const [chapter, setChapter]= useState('')
-  const [bookData, setBookData]= useState()
+ // const [books, setBooks ] = useState('')
+  //const [chapter, setChapter]= useState('')
+  const [bookData, setBookData]= useState('')
   
 
   console.log(bookData)
   
-  const endpointBooks =  `https://api.scripture.api.bible/v1/bibles/${version}/books/`
+  const endpointBooks =  `https://api.scripture.api.bible/v1/bibles/${version}/`
 
  const fetchBible =async()=>{
    await axios
-    .get(endpointBooks,{headers:{
-        'api-key':  apiKey,
+    .get(endpointBooks,{params:{
+        Authorization:  `Bearer ${apiKey}`,
        
       
     }})
     .then(response=>{
         setBookData(response.data)
     })
-    .catch(console.log(response=>response.error.message))}
+    .catch(console.log((response)=>response.error))}
+
+    console.log(version)
 
    
 
