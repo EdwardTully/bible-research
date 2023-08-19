@@ -11,6 +11,11 @@ const apiKey='a49ecda24d3670875bad7ee655eb71bb'
  const [books, setBooks ] = useState('')
   const [chapter, setChapter]= useState('')
   const [bookData, setBookData]= useState('')
+  const options={headers:{
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*',
+      'api-key': apiKey, 
+}}
   
 
   console.log(bookData)
@@ -19,13 +24,7 @@ const apiKey='a49ecda24d3670875bad7ee655eb71bb'
 
  const fetchBible =async()=>{
    await axios
-    .get(endpointBooks,{headers:{
-        accept:  'application/json',
-        'api-key': apiKey,
-
-       
-      
-    }})
+    .get(endpointBooks,options)
     .then(response=>{
         setBookData(response.data)
     })
