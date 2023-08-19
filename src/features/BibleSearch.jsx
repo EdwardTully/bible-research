@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import axios from 'axios'
 
 
 
@@ -22,15 +21,33 @@ const apiKey='a49ecda24d3670875bad7ee655eb71bb'
   
   const endpointBooks =  `https://api.scripture.api.bible/v1/bibles/${version}/`
 
- const fetchBible =async()=>{
-   await axios
-    .get(endpointBooks,options)
-    .then(response=>{
-        setBookData(response.data)
-    })
-    .catch(console.log((response)=>response.error))}
+ //const fetchBible =async()=>{
+  // await axios
+  /////  .get(endpointBooks,options)
+    //.then(response=>{
+    //    setBookData(response.data)
+   // })
+   // .catch(console.log((response)=>response.error))}
 
-    console.log(version)
+    // Example POST method implementation:
+const fetchBible =async()=> {
+  // Default options are marked with *
+  const response = await fetch(endpointBooks, {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      'api-key': apiKey,
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(), // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
 
    
 
