@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function BibleSearch() {
 
-const apiKey='07da560015da815745131ec07d5cc5cc'
+const apiKey='a49ecda24d3670875bad7ee655eb71bb'
 
   const  [version, setVersion]=useState('179568874c45066f-01')
  const [books, setBooks ] = useState('')
@@ -19,8 +19,10 @@ const apiKey='07da560015da815745131ec07d5cc5cc'
 
  const fetchBible =async()=>{
    await axios
-    .get(endpointBooks,{params:{
-        Authorization:  `Bearer ${apiKey}`,
+    .get(endpointBooks,{headers:{
+        accept:  'application/json',
+        'api-key': apiKey,
+
        
       
     }})
