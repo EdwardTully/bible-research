@@ -20,7 +20,7 @@ const apiKey='a49ecda24d3670875bad7ee655eb71bb'
 
 
   
-  const endpointBooks =  `https://cors-anywhere.herokuapp.com(https://bible-go-api.rkeplin.com/v1/translations/)`
+  const endpointBooks =  `https://bible-go-api.rkeplin.com/v1/translations/`
   //https://cors-anywhere.herokuapp.com(
 
  const fetchBible =async()=>{
